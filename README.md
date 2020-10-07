@@ -3,7 +3,7 @@
 ## Keep track of all the books you've read!
 
 Some features:
-- Organize books by the genre
+- Organize books by genre
 - Lists all books in collection by the same author
 - Lets users visualize their book collection
 - Keeps track of user's ratings and reviews for each book
