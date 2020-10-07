@@ -1,11 +1,17 @@
-# My Personal Project
+# My Book Manager Application
 
-## A subtitle
+## Keep track of all the books you've read!
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+Some features:
+- Organize books by the genre or author
+- Lets users visualize their book collection
+- Keeps track of user's ratings for each book
+- Lets users enter reviews for each book
 
-An example of text with **bold** and *italic* fonts.  Note that the IntelliJ markdown previewer doesn't seem to render 
-the bold and italic fonts correctly but they will appear correctly on GitHub.
+This application will help users keep track of the books that they
+have read by visualizing their entire collection, keeping track of their reviews and ratings for each book,
+and allowing users to organize books by the genre or author. This application is for anyone who enjoys reading. 
+
+This project is of interest to me because I enjoy reading as a hobby. I want an
+application to refer to where I can see the books that I have read and what I thought about them, since I usually 
+start forgetting as time passes.
