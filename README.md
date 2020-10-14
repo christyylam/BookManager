@@ -20,8 +20,8 @@ start forgetting as time passes.
 ## User Stories
 
 As a user, I want to be able to:
-- Add a book and its written review to my collection
-- View a list of the titles of the books in my collection
-- Select a book in my collection and rate it on a scale of 1 to 5 stars
+- Add a book and its review to my collection
+- View a list of books (the title and author) in my collection
+- Select a book in my collection and rate it on a scale of 1 to 5
 - Select a book in my collection and view my rating and review in detail
 
