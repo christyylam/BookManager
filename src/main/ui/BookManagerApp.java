@@ -71,7 +71,7 @@ public class BookManagerApp {
     }
 
     //MODIFIES: this
-    //EFFECTS:
+    //EFFECTS: prompts user to add a book to the collection
     private void doAdd() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter name of book");
@@ -94,7 +94,7 @@ public class BookManagerApp {
     }
 
     //MODIFIES: this
-    //EFFECTS:
+    //EFFECTS: prompts user to rate a book in the collection
     private void doRate() {
         Scanner input = new Scanner(System.in);
         doViewAll();
@@ -118,7 +118,7 @@ public class BookManagerApp {
     }
 
     //MODIFIES
-    //EFFECTS:
+    //EFFECTS: prompts user to view the ratings and review of a book in the collection
     private void doViewRatingsAndReviews() {
         Scanner input = new Scanner(System.in);
         doViewAll();
