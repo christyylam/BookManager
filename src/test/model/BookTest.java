@@ -19,4 +19,17 @@ class BookTest {
         assertEquals ("Harper Lee", testBook.getAuthor());
         assertEquals ("Loved it", testBook.getReview());
     }
+
+    @Test
+    public void testGetRating(){
+        assertEquals(0, testBook.getRating());
+    }
+
+    @Test
+    public void testSetRating(){
+        int i = 2;
+        assertEquals(0, testBook.getRating());
+        testBook.setRating(i);
+        assertEquals(2, testBook.getRating());
+    }
 }
