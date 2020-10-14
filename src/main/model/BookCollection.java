@@ -21,12 +21,13 @@ public class BookCollection {
     //EFFECTS: adds book to BookCollection if it's not already in BookCollection and returns true
     // if book is already in the collection, does not add it to collection and returns false instead
     public boolean addBook(Book b) {
-        if (!bookCollection.contains(b)) {
-            bookCollection.add(b);
-            return true;
-        } else {
-            return false;
+        for (Book c: bookCollection) {
+            if (c.getName().equals(b.getName()) && c.getAuthor().equals(b.getAuthor()) && c.getReview().equals(b.getReview())) {
+                return false;
+            }
         }
+        bookCollection.add(b);
+        return true;
     }
 
     //MODIFIES: this
