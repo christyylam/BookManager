@@ -40,10 +40,11 @@ public class BookCollectionTest {
     @Test
     public void testAddBookAlreadyInCollection(){
         Book b = new Book("To Kill a MockingBird", "Harper Lee",  "Loved it");
+        Book c = new Book ("To Kill a MockingBird", "Harper Lee",  "Loved it");
         assertFalse(testCollection.doesContain(b));
         assertTrue(testCollection.addBook(b));
-        assertTrue(testCollection.doesContain(b));
-        assertFalse(testCollection.addBook(b));
+        assertFalse(testCollection.addBook(c));
+
     }
 
     @Test
