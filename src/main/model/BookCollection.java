@@ -23,8 +23,7 @@ public class BookCollection {
     public boolean addBook(Book b) {
         for (Book c: bookCollection) {
             if (c.getName().equals(b.getName())
-                    && c.getAuthor().equals(b.getAuthor())
-                    && c.getReview().equals(b.getReview())) {
+                    && c.getAuthor().equals(b.getAuthor())) {
                 return false;
             }
         }
