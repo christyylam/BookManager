@@ -22,7 +22,9 @@ public class BookCollection {
     // if book is already in the collection, does not add it to collection and returns false instead
     public boolean addBook(Book b) {
         for (Book c: bookCollection) {
-            if (c.getName().equals(b.getName()) && c.getAuthor().equals(b.getAuthor()) && c.getReview().equals(b.getReview())) {
+            if (c.getName().equals(b.getName())
+                    && c.getAuthor().equals(b.getAuthor())
+                    && c.getReview().equals(b.getReview())) {
                 return false;
             }
         }
