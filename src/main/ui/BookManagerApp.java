@@ -27,7 +27,6 @@ public class BookManagerApp {
         while (keepGoing) {
             displayMenu();
             command = input.next();
-            command = command.toLowerCase();
 
             if (command.equals("q")) {
                 keepGoing = false;
@@ -70,7 +69,7 @@ public class BookManagerApp {
         System.out.println("\tq -> quit");
     }
 
-    //MODIFIES: this
+    //MODIFIES: BookCollection
     //EFFECTS: prompts user to add a book to the collection
     private void doAdd() {
         Scanner input = new Scanner(System.in);
@@ -79,10 +78,13 @@ public class BookManagerApp {
         System.out.println("Enter author of book");
         String author = input.nextLine();
         System.out.println("Enter your review");
-        String review = input.nextLine(); //
+        String review = input.nextLine();
         Book b = new Book(name, author, review);
-        collection.addBook(b);
-        System.out.println(b.getName() + " " + "has been added to your collection!");
+        if (!collection.addBook(b)) {
+            System.out.println("This book is already in your collection!");
+        } else {
+            System.out.println(b.getName() + " " + "has been added to your collection!");
+        }
     }
 
     //EFFECTS: prints out list of books in the BookCollection
@@ -93,7 +95,7 @@ public class BookManagerApp {
         }
     }
 
-    //MODIFIES: this
+    //MODIFIES: Book
     //EFFECTS: prompts user to rate a book in the collection
     private void doRate() {
         Scanner input = new Scanner(System.in);
@@ -117,7 +119,6 @@ public class BookManagerApp {
         }
     }
 
-    //MODIFIES
     //EFFECTS: prompts user to view the ratings and review of a book in the collection
     private void doViewRatingsAndReviews() {
         Scanner input = new Scanner(System.in);

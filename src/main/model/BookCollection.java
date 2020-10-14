@@ -18,7 +18,7 @@ public class BookCollection {
     }
 
     // MODIFIES: this
-    //EFFECTS: adds book to BookCollection if it's not already in Bookcollection and returns true
+    //EFFECTS: adds book to BookCollection if it's not already in BookCollection and returns true
     // if book is already in the collection, does not add it to collection and returns false instead
     public boolean addBook(Book b) {
         if (!bookCollection.contains(b)) {
@@ -43,7 +43,7 @@ public class BookCollection {
 
     //EFFECTS: returns true if BookCollection contains Book b
     //returns false otherwise
-    public boolean contains(Book b) {
+    public boolean doesContain(Book b) {
         return bookCollection.contains(b);
     }
 

@@ -3,8 +3,6 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,31 +17,32 @@ public class BookCollectionTest {
     }
 
     @Test
-    public void testContainsDoesNotContain(){
+    public void testDoesContainsDoesNot(){
         Book b = new Book("To Kill a MockingBird", "Harper Lee",  "Loved it");
-        assertFalse(testCollection.contains(b));
+        assertFalse(testCollection.doesContain(b));
     }
 
     @Test
-    public void testContainsDoesContain(){
+    public void testDoesContainsDoes(){
         Book b = new Book("To Kill a MockingBird", "Harper Lee",  "Loved it");
         testCollection.addBook(b);
-        assertTrue(testCollection.contains(b));
+        assertTrue(testCollection.doesContain(b));
     }
 
     @Test
     public void testAddBookNotInCollection(){
         Book b = new Book("To Kill a MockingBird", "Harper Lee",  "Loved it");
-        assertFalse(testCollection.contains(b));
+        assertFalse(testCollection.doesContain(b));
         assertTrue(testCollection.addBook(b));
-        assertTrue(testCollection.contains(b));
+        assertTrue(testCollection.doesContain(b));
     }
 
     @Test
     public void testAddBookAlreadyInCollection(){
         Book b = new Book("To Kill a MockingBird", "Harper Lee",  "Loved it");
-        testCollection.addBook(b);
-        assertTrue(testCollection.contains(b));
+        assertFalse(testCollection.doesContain(b));
+        assertTrue(testCollection.addBook(b));
+        assertTrue(testCollection.doesContain(b));
         assertFalse(testCollection.addBook(b));
     }
 
@@ -53,7 +52,7 @@ public class BookCollectionTest {
         Book a = new Book("Harry Potter", "JK Rowling", "so good!");
         testCollection.addBook(b);
         assertFalse(testCollection.removeBook(a));
-        assertFalse(testCollection.contains(a));
+        assertFalse(testCollection.doesContain(a));
     }
 
     @Test
@@ -63,8 +62,8 @@ public class BookCollectionTest {
         testCollection.addBook(a);
         testCollection.addBook(b);
         assertTrue(testCollection.removeBook(b));
-        assertFalse(testCollection.contains(b));
-        assertTrue(testCollection.contains(a));
+        assertFalse(testCollection.doesContain(b));
+        assertTrue(testCollection.doesContain(a));
     }
 
     @Test
@@ -74,7 +73,7 @@ public class BookCollectionTest {
         testCollection.addBook(a);
         testCollection.addBook(b);
         for(Book c: testCollection.getBookCollection()) {
-            assertTrue(testCollection.contains(c));
+            assertTrue(testCollection.doesContain(c));
         }
     }
 
