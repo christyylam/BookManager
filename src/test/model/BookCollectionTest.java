@@ -67,5 +67,16 @@ public class BookCollectionTest {
         assertTrue(testCollection.contains(a));
     }
 
+    @Test
+    public void testGetBookCollection(){
+        Book b = new Book("To Kill a MockingBird", "Harper Lee", "Loved it");
+        Book a = new Book("Harry Potter", "JK Rowling", "so good!");
+        testCollection.addBook(a);
+        testCollection.addBook(b);
+        for(Book c: testCollection.getBookCollection()) {
+            assertTrue(testCollection.contains(c));
+        }
+    }
+
 
 }
