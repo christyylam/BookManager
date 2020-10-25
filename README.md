@@ -25,3 +25,5 @@ As a user, I want to be able to:
 - Select a book in my collection and rate it on a scale of 1 to 5
 - Select a book in my collection and view my rating and review in detail
 
+- Save my book collection to file
+- Load my book collection from file

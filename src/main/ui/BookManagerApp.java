@@ -3,6 +3,7 @@ package ui;
 import model.Book;
 import model.BookCollection;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BookManagerApp {
@@ -95,29 +96,76 @@ public class BookManagerApp {
         }
     }
 
+//    //MODIFIES: Book
+//    //EFFECTS: prompts user to rate a book in the collection
+//    private void doRate() {
+//        Scanner input = new Scanner(System.in);
+//        doViewAll();
+//        boolean set = false;
+//        System.out.println("Enter a book name to rate:");
+//        try {
+//            String name = input.nextLine();
+//            for (Book b : collection.getBookCollection()) {
+//                if (name.equals(b.getName())) {
+//                    System.out.println("What is your rating from 1 to 5?");
+//                    int rating = input.nextInt();
+//                    if (rating >= 1 && rating <= 5) {
+//                        b.setRating(rating);
+//                        System.out.println("rated!");
+//                    } else {
+//                        System.out.println("invalid rating!");
+//                    }
+//                }
+//            }
+//            set = true;
+//        } catch (InputMismatchException e) {
+//            System.out.println("invalid input!");
+//            set = true;
+//        }
+//        if (!set) {
+//            System.out.println("Sorry! That book is not in your collection");
+//        }
+//    }
+
     //MODIFIES: Book
     //EFFECTS: prompts user to rate a book in the collection
     private void doRate() {
         Scanner input = new Scanner(System.in);
         doViewAll();
-        System.out.println("Enter a book name to rate:");
-        String name = input.nextLine();
         boolean set = false;
-        for (Book b : collection.getBookCollection()) {
-            if (name.equals(b.getName())) {
-                System.out.println("What is your rating from 1 to 5?");
-                int rating = input.nextInt();
-                b.setRating(rating);
-                set = true;
-                break;
-            } else {
-                set = false;
-            }
+        System.out.println("Enter a book name to rate:");
+        try {
+            ratingInputChecker();
+            set = true;
+        } catch (InputMismatchException e) {
+            System.out.println("invalid input!");
+            set = true;
         }
         if (!set) {
             System.out.println("Sorry! That book is not in your collection");
         }
     }
+
+    //EFFECTS: checks if user's rating input is between 1 to 5
+    // if it is, sets the rating
+    // if it isn't, does not set the rating and prints out invalid rating message
+    private void ratingInputChecker() {
+        Scanner input = new Scanner(System.in);
+        String name = input.nextLine();
+        for (Book b : collection.getBookCollection()) {
+            if (name.equals(b.getName())) {
+                System.out.println("What is your rating from 1 to 5?");
+                int rating = input.nextInt();
+                if (rating >= 1 && rating <= 5) {
+                    b.setRating(rating);
+                    System.out.println("rated!");
+                } else {
+                    System.out.println("invalid rating!");
+                }
+            }
+        }
+    }
+
 
     //EFFECTS: prompts user to view the ratings and review of a book in the collection
     private void doViewRatingsAndReviews() {
