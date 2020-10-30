@@ -1,27 +1,39 @@
 package model;
 
-import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
 
-public class BookCollection {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class BookCollection implements Writable {
+    private String name;
     private ArrayList<Book> bookCollection;
 
     //constructor
     //EFFECTS: creates a new empty BookCollection
-    public BookCollection() {
-        this.bookCollection = new ArrayList<>();
+    public BookCollection(String name) {
+        this.name = name;
+        bookCollection = new ArrayList<>();
     }
 
-    //getter
+    //EFFECTS: gets the name of BookCollection
+    public String getName() {
+        return name;
+    }
+
     // EFFECTS: returns list of Books in BookCollection
-    public ArrayList<Book> getBookCollection() {
-        return bookCollection;
+    public List<Book> getBookCollection() {
+        return Collections.unmodifiableList(bookCollection);
     }
 
     // MODIFIES: this
     //EFFECTS: adds book to BookCollection if it's not already in BookCollection and returns true
     // if book is already in the collection, does not add it to collection and returns false instead
     public boolean addBook(Book b) {
-        for (Book c: bookCollection) {
+        for (Book c : bookCollection) {
             if (c.getName().equals(b.getName())
                     && c.getAuthor().equals(b.getAuthor())) {
                 return false;
@@ -49,5 +61,29 @@ public class BookCollection {
         return bookCollection.contains(b);
     }
 
+    //EFFECTS: returns number of books in bookcollection
+    public int numBooks() {
+        return bookCollection.size();
+    }
+
+
+    //CITATION: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("books", booksToJson());
+        return json;
+    }
+
+    //EFFECTS: returns books in this bookcollection as a JSON array
+    private JSONArray booksToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Book b : bookCollection) {
+            jsonArray.put(b.toJson());
+        }
+        return jsonArray;
+    }
 
 }

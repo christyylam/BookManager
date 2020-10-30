@@ -1,0 +1,17 @@
+{
+    "books": [
+        {
+            "author": "fsd",
+            "review": "sd",
+            "name": "sd",
+            "rating": 3
+        },
+        {
+            "author": "sd",
+            "review": "s",
+            "name": "sdf",
+            "rating": 3
+        }
+    ],
+    "name": "Christy's book collection"
+}

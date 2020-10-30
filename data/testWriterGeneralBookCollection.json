@@ -1,0 +1,17 @@
+{
+    "books": [
+        {
+            "author": "JK Rowling",
+            "review": "good",
+            "name": "Harry Potter",
+            "rating": 5
+        },
+        {
+            "author": "Harper Lee",
+            "review": "Loved it",
+            "name": "To Kill a Mockingbird",
+            "rating": 5
+        }
+    ],
+    "name": "My Book Collection"
+}
