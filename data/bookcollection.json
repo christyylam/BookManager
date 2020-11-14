@@ -1,16 +1,22 @@
 {
     "books": [
         {
-            "author": "fsd",
-            "review": "sd",
-            "name": "sd",
-            "rating": 3
+            "author": "sm",
+            "review": "good",
+            "name": "twilight",
+            "rating": 0
         },
         {
-            "author": "sd",
-            "review": "s",
-            "name": "sdf",
-            "rating": 3
+            "author": "sm",
+            "review": "5",
+            "name": "new moon",
+            "rating": 5
+        },
+        {
+            "author": "as",
+            "review": "fd",
+            "name": "0",
+            "rating": 0
         }
     ],
     "name": "Christy's book collection"
