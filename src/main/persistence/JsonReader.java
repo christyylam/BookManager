@@ -66,7 +66,7 @@ public class JsonReader {
         String author = jsonObject.getString("author");
         String review = jsonObject.getString("review");
         int rating = jsonObject.getInt("rating");
-        Book book = new Book(name, author, review);
+        Book book = new Book(name, author, rating, review);
         book.setRating(rating);
         bc.addBook(book);
     }

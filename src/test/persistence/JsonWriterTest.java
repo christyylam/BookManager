@@ -47,10 +47,8 @@ public class JsonWriterTest extends JsonTest {
     public void testWriterGeneralBookCollection() {
         try {
             BookCollection bc = new BookCollection("My Book Collection");
-            Book b1 = new Book("Harry Potter", "JK Rowling", "good");
-            Book b2 = new Book("To Kill a Mockingbird", "Harper Lee", "Loved it");b1.setRating(5);
-            b1.setRating(5);
-            b2.setRating(5);
+            Book b1 = new Book("Harry Potter", "JK Rowling", 5,"good");
+            Book b2 = new Book("To Kill a Mockingbird", "Harper Lee", 5,"Loved it");
             bc.addBook(b1);
             bc.addBook(b2);
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralBookCollection.json");

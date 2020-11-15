@@ -18,20 +18,20 @@ public class BookCollectionTest {
 
     @Test
     public void testDoesContainsDoesNot(){
-        Book b = new Book("To Kill a Mockingbird", "Harper Lee",  "Loved it");
+        Book b = new Book("To Kill a Mockingbird", "Harper Lee", 5, "Loved it");
         assertFalse(testCollection.doesContain(b));
     }
 
     @Test
     public void testDoesContainsDoes(){
-        Book b = new Book("To Kill a Mockingbird", "Harper Lee",  "Loved it");
+        Book b = new Book("To Kill a Mockingbird", "Harper Lee",  5,"Loved it");
         testCollection.addBook(b);
         assertTrue(testCollection.doesContain(b));
     }
 
     @Test
     public void testAddBookNotInCollection(){
-        Book b = new Book("To Kill a Mockingbird", "Harper Lee",  "Loved it");
+        Book b = new Book("To Kill a Mockingbird", "Harper Lee",  5,"Loved it");
         assertFalse(testCollection.doesContain(b));
         assertTrue(testCollection.addBook(b));
         assertTrue(testCollection.doesContain(b));
@@ -39,8 +39,8 @@ public class BookCollectionTest {
 
     @Test
     public void testAddBookSameNameSameAuthor(){
-        Book b = new Book("To Kill a Mockingbird", "Harper Lee",  "Loved it");
-        Book c = new Book ("To Kill a Mockingbird", "Harper Lee",  "Loved it");
+        Book b = new Book("To Kill a Mockingbird", "Harper Lee",  5, "Loved it");
+        Book c = new Book ("To Kill a Mockingbird", "Harper Lee",  5, "Loved it");
         assertFalse(testCollection.doesContain(b));
         assertTrue(testCollection.addBook(b));
         assertFalse(testCollection.addBook(c));
@@ -48,16 +48,16 @@ public class BookCollectionTest {
 
     @Test
     public void testAddBookSameNameDiffAuthor() {
-        Book b = new Book("Book", "Harper Lee",  "Loved it");
-        Book c = new Book ("Book", "JK Rowling",  "Loved it");
+        Book b = new Book("Book", "Harper Lee",  5,"Loved it");
+        Book c = new Book ("Book", "JK Rowling", 5, "Loved it");
         assertTrue(testCollection.addBook(b));
         assertTrue(testCollection.addBook(c));
     }
 
     @Test
     public void testAddBookDiffNameSameAuthor() {
-        Book b = new Book("Hunger Games", "Suzanne Collins",  "Loved it");
-        Book c = new Book ("Catching Fire", "Suzanne Collins",  "Loved it");
+        Book b = new Book("Hunger Games", "Suzanne Collins", 5, "Loved it");
+        Book c = new Book ("Catching Fire", "Suzanne Collins",  5,"Loved it");
         assertTrue(testCollection.addBook(b));
         assertTrue(testCollection.addBook(c));
     }
@@ -65,8 +65,8 @@ public class BookCollectionTest {
 
     @Test
     public void testRemoveBookNotInCollection(){
-        Book b = new Book("To Kill a MockingBird", "Harper Lee", "Loved it");
-        Book a = new Book("Harry Potter", "JK Rowling", "so good!");
+        Book b = new Book("To Kill a MockingBird", "Harper Lee", 5,"Loved it");
+        Book a = new Book("Harry Potter", "JK Rowling", 5,"so good!");
         testCollection.addBook(b);
         assertFalse(testCollection.removeBook(a));
         assertFalse(testCollection.doesContain(a));
@@ -74,8 +74,8 @@ public class BookCollectionTest {
 
     @Test
     public void testRemoveBookInCollection(){
-        Book b = new Book("To Kill a MockingBird", "Harper Lee", "Loved it");
-        Book a = new Book("Harry Potter", "JK Rowling", "so good!");
+        Book b = new Book("To Kill a MockingBird", "Harper Lee",5, "Loved it");
+        Book a = new Book("Harry Potter", "JK Rowling", 5,"so good!");
         testCollection.addBook(a);
         testCollection.addBook(b);
         assertTrue(testCollection.removeBook(b));
@@ -85,8 +85,8 @@ public class BookCollectionTest {
 
     @Test
     public void testGetBookCollection(){
-        Book b = new Book("To Kill a MockingBird", "Harper Lee", "Loved it");
-        Book a = new Book("Harry Potter", "JK Rowling", "so good!");
+        Book b = new Book("To Kill a MockingBird", "Harper Lee", 5,"Loved it");
+        Book a = new Book("Harry Potter", "JK Rowling", 5,"so good!");
         testCollection.addBook(a);
         testCollection.addBook(b);
         for(Book c: testCollection.getBookCollection()) {

@@ -10,19 +10,15 @@ class BookTest {
 
     @BeforeEach
     public void setUp() {
-        testBook = new Book("To Kill a MockingBird", "Harper Lee", "Loved it");
+        testBook = new Book("To Kill a MockingBird", "Harper Lee", 5,"Loved it");
     }
 
     @Test
     public void testConstructor(){
         assertEquals("To Kill a MockingBird", testBook.getName());
         assertEquals ("Harper Lee", testBook.getAuthor());
+        assertEquals(5, testBook.getRating());
         assertEquals ("Loved it", testBook.getReview());
-    }
-
-    @Test
-    public void testGetRating(){
-        assertEquals(0, testBook.getRating());
     }
 
     @Test

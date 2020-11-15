@@ -6,9 +6,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BookManagerAppFrame extends JFrame implements ActionListener {
-    private MenuPanel menu;
-    JButton button;
+public class BookManagerAppFrame extends JFrame {
+    private AddBookPanel bookPanel;
+    private ViewBookCollectionPanel collectionPanel;
+    private LoadSavePanel loadSavePanel;
+
+
 
     //Constructs main window
     //EFFECTS: sets up window where BookManagerApp will be run
@@ -20,8 +23,12 @@ public class BookManagerAppFrame extends JFrame implements ActionListener {
         setVisible(true);
         centreOnScreen();
         getContentPane().setBackground(new Color(240,255,255));
-        menu = new MenuPanel();
-        add(menu, BorderLayout.NORTH);
+        bookPanel = new AddBookPanel();
+        add(bookPanel, BorderLayout.EAST);
+        collectionPanel = new ViewBookCollectionPanel();
+        add(collectionPanel, BorderLayout.CENTER);
+        add(loadSavePanel = new LoadSavePanel(), BorderLayout.SOUTH);
+
         setVisible(true);
     }
 
@@ -32,13 +39,6 @@ public class BookManagerAppFrame extends JFrame implements ActionListener {
     private void centreOnScreen() {
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((screen.width - getWidth()) / 2, (screen.height - getHeight()) / 2);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == button) {
-            System.out.println("Poo");
-        }
     }
 
 

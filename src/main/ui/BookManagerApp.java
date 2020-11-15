@@ -76,7 +76,7 @@ public class BookManagerApp {
     //EFFECTS: displays menu of options to user
     private void displayMenu() {
         System.out.println("Select from");
-        System.out.println("\ta -> add a book and its review");
+        System.out.println("\ta -> add a book and its rating and review");
         System.out.println("\tv -> view all books in collection");
         System.out.println("\tr -> rate a book in the collection");
         System.out.println("\trr -> view ratings and reviews");
@@ -88,14 +88,23 @@ public class BookManagerApp {
     //MODIFIES: BookCollection
     //EFFECTS: prompts user to add a book to the collection
     private void doAdd() {
+        int rating = 0;
+        boolean correct = false;
         Scanner input = new Scanner(System.in);
         System.out.println("Enter name of book");
         String name = input.nextLine();
         System.out.println("Enter author of book");
         String author = input.nextLine();
+        System.out.println("Enter your rating out of 5");
+        String stringRating = input.nextLine();
+        try {
+            rating = Integer.parseInt(stringRating);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input!");
+        }
         System.out.println("Enter your review");
         String review = input.nextLine();
-        Book b = new Book(name, author, review);
+        Book b = new Book(name, author, rating, review);
         if (!collection.addBook(b)) {
             System.out.println("This book is already in your collection!");
         } else {
