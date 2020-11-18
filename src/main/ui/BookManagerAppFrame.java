@@ -5,12 +5,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 
 public class BookManagerAppFrame extends JFrame {
     private AddBookPanel bookPanel;
     private ViewBookCollectionPanel collectionPanel;
     private LoadSavePanel loadSavePanel;
-
 
 
     //Constructs main window
@@ -40,8 +40,6 @@ public class BookManagerAppFrame extends JFrame {
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((screen.width - getWidth()) / 2, (screen.height - getHeight()) / 2);
     }
-
-
 
 
 }

@@ -1,22 +1,16 @@
 {
     "books": [
         {
-            "author": "sm",
+            "author": "jk rowling",
             "review": "good",
-            "name": "twilight",
-            "rating": 0
-        },
-        {
-            "author": "sm",
-            "review": "5",
-            "name": "new moon",
+            "name": "harry potter",
             "rating": 5
         },
         {
-            "author": "as",
-            "review": "fd",
-            "name": "0",
-            "rating": 0
+            "author": "hi",
+            "review": "sd",
+            "name": "hi",
+            "rating": 2
         }
     ],
     "name": "Christy's book collection"

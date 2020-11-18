@@ -182,7 +182,7 @@ public class BookManagerApp {
         }
     }
 
-    // EFFECTS: saves the bookcollection to file
+     //EFFECTS: saves the bookcollection to file
     private void saveBookCollection() {
         try {
             jsonWriter.open();
