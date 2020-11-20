@@ -1,17 +1,16 @@
 package ui;
 
+import model.Book;
+import model.BookCollection;
+import persistence.JsonReader;
+import persistence.JsonWriter;
+
 import javax.swing.*;
-import javax.swing.text.View;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import model.Book;
-import model.BookCollection;
-import persistence.JsonReader;
-import persistence.JsonWriter;
 
 public class LoadSavePanel extends JPanel implements ActionListener {
     private JButton saveButton;
@@ -24,7 +23,7 @@ public class LoadSavePanel extends JPanel implements ActionListener {
 
     //EFFECTS: constructs the LoadSave panel
     public LoadSavePanel() {
-        setBackground(new Color(245,255,250));
+        setBackground(new Color(245, 255, 250));
         saveButton = new JButton("Save Book Collection");
         saveButton.addActionListener(this);
         loadButton = new JButton("Load Book Collection");
@@ -52,9 +51,10 @@ public class LoadSavePanel extends JPanel implements ActionListener {
             jsonWriter.open();
             jsonWriter.write(bookCollection);
             jsonWriter.close();
-            JOptionPane.showMessageDialog(this, "Saved your book collection!");
+            JOptionPane.showMessageDialog(null, "Saved your book collection!", "BOOK MANAGER",
+                    JOptionPane.QUESTION_MESSAGE, null);
         } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(this, "Unable to save");
+            JOptionPane.showMessageDialog(null, "Unable to save");
         }
     }
 
@@ -72,7 +72,8 @@ public class LoadSavePanel extends JPanel implements ActionListener {
                 ViewBookCollectionPanel.model.add(0, entry);
             }
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Unable to load book collection");
+            JOptionPane.showMessageDialog(null, "Unable to load book collection");
+
         }
     }
 

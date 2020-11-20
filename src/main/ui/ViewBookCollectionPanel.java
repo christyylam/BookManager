@@ -49,10 +49,12 @@ public class ViewBookCollectionPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == removeButton) {
             try {
+                int index = bookCollList.getSelectedIndex();
+                Book b = LoadSavePanel.bookCollection.getBookAtIndex(index);
+                LoadSavePanel.bookCollection.removeBook(b);
                 model.remove(bookCollList.getSelectedIndex());
-
             } catch (ArrayIndexOutOfBoundsException a) {
-                JOptionPane.showMessageDialog(this, "No Book Selected!");
+                JOptionPane.showMessageDialog(null, "No Book Selected!");
             }
         }
     }

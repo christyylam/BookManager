@@ -11,6 +11,7 @@ public class BookManagerAppFrame extends JFrame {
     private AddBookPanel bookPanel;
     private ViewBookCollectionPanel collectionPanel;
     private LoadSavePanel loadSavePanel;
+    private JPanel createHeaderPanel;
 
 
     //Constructs main window
@@ -30,6 +31,12 @@ public class BookManagerAppFrame extends JFrame {
         add(loadSavePanel = new LoadSavePanel(), BorderLayout.SOUTH);
 
         setVisible(true);
+    }
+
+    public void createHeaderPanel() {
+        setBackground(new Color(240, 248, 255));
+        JLabel titleLabel = new JLabel();
+        add(titleLabel);
     }
 
     // CITATION: https://github.students.cs.ubc.ca/CPSC210/B02-SpaceInvadersBase.git

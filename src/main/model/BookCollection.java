@@ -55,6 +55,11 @@ public class BookCollection implements Writable {
         }
     }
 
+    //EFFECTS: returns book at the index specified
+    public Book getBookAtIndex(int i) {
+        return bookCollection.get(i);
+    }
+
     //EFFECTS: returns true if BookCollection contains Book b
     //returns false otherwise
     public boolean doesContain(Book b) {

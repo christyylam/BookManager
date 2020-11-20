@@ -94,5 +94,15 @@ public class BookCollectionTest {
         }
     }
 
+    @Test
+    public void testGetBookAtIndex() {
+        Book b = new Book("To Kill a MockingBird", "Harper Lee", 5,"Loved it");
+        Book a = new Book("Harry Potter", "JK Rowling", 5,"so good!");
+        testCollection.addBook(a);
+        testCollection.addBook(b);
+        assertEquals(b, testCollection.getBookAtIndex(1));
+        assertEquals(a, testCollection.getBookAtIndex(0));
+    }
+
 
 }
