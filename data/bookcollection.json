@@ -1,9 +1,4 @@
 {
-    "books": [{
-        "author": "poo",
-        "review": "sdsd",
-        "name": "poo",
-        "rating": 5
-    }],
+    "books": [],
     "name": "Christy's book collection"
 }

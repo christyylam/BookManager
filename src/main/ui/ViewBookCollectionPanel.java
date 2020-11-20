@@ -15,10 +15,12 @@ public class ViewBookCollectionPanel extends JPanel implements ActionListener {
 
     //EFFECTS: constructs the view book collection panel
     public ViewBookCollectionPanel() {
-        setBackground(new Color(255, 240, 245));
-        setPreferredSize(new Dimension(300, 250));
+        setBackground(new Color(255,240,245));
+        setPreferredSize(new Dimension(200, 200));
         setLayout(new BorderLayout());
-        bookCollLabel = new JLabel("My Book Collection");
+        bookCollLabel = new JLabel("M Y  B O O K  C O L L E C T I O N");
+        bookCollLabel.setFont(new Font("Verdana", Font.BOLD, 15));
+        bookCollLabel.setForeground(new Color(255,182,193));
         createBookCollectionList();
         createRemoveButton();
     }

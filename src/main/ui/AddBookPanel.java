@@ -26,7 +26,7 @@ public class AddBookPanel extends JPanel implements ActionListener {
     //EFFECTS: constructs the AddBook panel
     public AddBookPanel() {
         setBackground(new Color(240, 248, 255));
-        setPreferredSize(new Dimension(200, 200));
+        setPreferredSize(new Dimension(250, 200));
         setLayout(new GridLayout(0, 1, 0, 5));
         addLabelsAndText();
         createAddBookButton();
@@ -35,13 +35,25 @@ public class AddBookPanel extends JPanel implements ActionListener {
     //MODIFIES: this
     //EFFECTS: adds all JLabels and JTextFields onto panel
     public void addLabelsAndText() {
-        add(nameLabel = new JLabel("Name"));
+        nameLabel = new JLabel("N A M E");
+        nameLabel.setFont(new Font("Verdana", Font.BOLD, 13));
+        nameLabel.setForeground(new Color(100,149,237));
+        add(nameLabel);
         add(nameTxt = new JTextField());
-        add(authorLabel = new JLabel("Author"));
+        authorLabel = new JLabel("A U T H O R");
+        authorLabel.setFont(new Font("Verdana", Font.BOLD, 13));
+        authorLabel.setForeground(new Color(100,149,237));
+        add(authorLabel);
         add(authorTxt = new JTextField());
-        add(ratingLabel = new JLabel("Rating /5"));
+        ratingLabel = new JLabel("R A T I N G (/5)");
+        ratingLabel.setFont(new Font("Verdana", Font.BOLD, 13));
+        ratingLabel.setForeground(new Color(100,149,237));
+        add(ratingLabel);
         add(ratingTxt = new JTextField());
-        add(reviewLabel = new JLabel("Review"));
+        reviewLabel = new JLabel("R E V I E W");
+        reviewLabel.setFont(new Font("Verdana", Font.BOLD, 13));
+        reviewLabel.setForeground(new Color(100,149,237));
+        add(reviewLabel);
         add(reviewTxt = new JTextField());
     }
 
@@ -83,6 +95,7 @@ public class AddBookPanel extends JPanel implements ActionListener {
         }
     }
 
+    //EFFECTS: creates a new entry with name, author, rating, review
     public String createEntry(String name, String author, String review, int rating) {
         String entry = "\"" + name + "\"" + " by " + author + ", Rating: "
                 + rating + " , Review: " + review;
@@ -99,7 +112,7 @@ public class AddBookPanel extends JPanel implements ActionListener {
     }
 
     //MODIFIES: this
-    //EFFECTS:
+    //EFFECTS: plays audioclip
     public void playSoundEffect() {
         File file = new File("./data/magicwand.wav");
         try {

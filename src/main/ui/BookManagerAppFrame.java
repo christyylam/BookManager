@@ -11,7 +11,7 @@ public class BookManagerAppFrame extends JFrame {
     private AddBookPanel bookPanel;
     private ViewBookCollectionPanel collectionPanel;
     private LoadSavePanel loadSavePanel;
-    private JPanel createHeaderPanel;
+    private HeaderPanel headerPanel;
 
 
     //Constructs main window
@@ -19,7 +19,7 @@ public class BookManagerAppFrame extends JFrame {
     public BookManagerAppFrame() {
         super("Book Manager");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500,500);
+        setSize(650,650);
         setLayout(new BorderLayout());
         setVisible(true);
         centreOnScreen();
@@ -29,15 +29,11 @@ public class BookManagerAppFrame extends JFrame {
         collectionPanel = new ViewBookCollectionPanel();
         add(collectionPanel, BorderLayout.CENTER);
         add(loadSavePanel = new LoadSavePanel(), BorderLayout.SOUTH);
+        add(headerPanel = new HeaderPanel(), BorderLayout.NORTH);
 
         setVisible(true);
     }
 
-    public void createHeaderPanel() {
-        setBackground(new Color(240, 248, 255));
-        JLabel titleLabel = new JLabel();
-        add(titleLabel);
-    }
 
     // CITATION: https://github.students.cs.ubc.ca/CPSC210/B02-SpaceInvadersBase.git
     // Centres frame on desktop

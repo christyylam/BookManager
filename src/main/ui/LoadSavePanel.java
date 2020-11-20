@@ -20,10 +20,10 @@ public class LoadSavePanel extends JPanel implements ActionListener {
     private JsonReader jsonReader;
     static BookCollection bookCollection;
 
-
-    //EFFECTS: constructs the LoadSave panel
+    // EFFECTS: constructs the LoadSave panel
     public LoadSavePanel() {
-        setBackground(new Color(245, 255, 250));
+        setBackground(new Color(240,255,255));
+        setPreferredSize(new Dimension(100, 50));
         saveButton = new JButton("Save Book Collection");
         saveButton.addActionListener(this);
         loadButton = new JButton("Load Book Collection");
@@ -35,6 +35,8 @@ public class LoadSavePanel extends JPanel implements ActionListener {
         jsonReader = new JsonReader(JSON_STORE);
     }
 
+    //EFFECTS: runs saveBookCollection if action event is at the save button
+    // runs loadBookCollection if action event is at the load button
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == saveButton) {
@@ -77,6 +79,7 @@ public class LoadSavePanel extends JPanel implements ActionListener {
         }
     }
 
+    //EFFECTS: creates a new entry with name, author, rating, review
     public String createEntry(String name, String author, String rating, String review) {
         String entry = "\"" + name + "\"" + " by " + author + ", Rating: "
                 + rating + " , Review: " + review;

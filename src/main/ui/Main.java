@@ -7,10 +7,4 @@ public class Main {
         BookManagerAppFrame frame = new BookManagerAppFrame();
     }
 
-//        try {
-//            new BookManagerApp();
-//        } catch (FileNotFoundException e) {
-//            System.out.println("Unable to run application: file not found");
-//        }
-//    }
 }
