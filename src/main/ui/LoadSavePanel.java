@@ -6,6 +6,7 @@ import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,15 +25,23 @@ public class LoadSavePanel extends JPanel implements ActionListener {
     public LoadSavePanel() {
         setBackground(new Color(240,255,255));
         setPreferredSize(new Dimension(100, 50));
+        Border border = BorderFactory.createLineBorder(Color.WHITE, 7);
+        setBorder(border);
+        addSaveLoadButtons();
+        bookCollection = new BookCollection("Christy's book collection");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
+    }
+
+    //MODIFIES: this
+    //EFFECTS: creates save button and load button and adds them onto the panel
+    public void addSaveLoadButtons() {
         saveButton = new JButton("Save Book Collection");
         saveButton.addActionListener(this);
         loadButton = new JButton("Load Book Collection");
         loadButton.addActionListener(this);
         add(saveButton);
         add(loadButton);
-        bookCollection = new BookCollection("Christy's book collection");
-        jsonWriter = new JsonWriter(JSON_STORE);
-        jsonReader = new JsonReader(JSON_STORE);
     }
 
     //EFFECTS: runs saveBookCollection if action event is at the save button

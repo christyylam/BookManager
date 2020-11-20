@@ -1,7 +1,6 @@
 package ui;
 
 import model.Book;
-import model.BookCollection;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -29,7 +28,7 @@ public class AddBookPanel extends JPanel implements ActionListener {
         setPreferredSize(new Dimension(250, 200));
         setLayout(new GridLayout(0, 1, 0, 5));
         addLabelsAndText();
-        createAddBookButton();
+        addBookButton();
     }
 
     //MODIFIES: this
@@ -59,7 +58,7 @@ public class AddBookPanel extends JPanel implements ActionListener {
 
     //MODIFIES: this
     //EFFECTS: creates Add Book Button
-    public void createAddBookButton() {
+    public void addBookButton() {
         addBookButton = new JButton("Add Book");
         add(addBookButton);
         addBookButton.addActionListener(this);
@@ -78,9 +77,9 @@ public class AddBookPanel extends JPanel implements ActionListener {
                 String review = reviewTxt.getText();
                 int rating = Integer.parseInt(ratingTxt.getText());
                 if (nameTxt.getText().isEmpty() || authorTxt.getText().isEmpty() || reviewTxt.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(this, "Must fill in all fields!");
+                    JOptionPane.showMessageDialog(null, "Must fill in all fields!");
                 } else if (rating < 0 || rating > 5) {
-                    JOptionPane.showMessageDialog(this, "Rating is not between 0-5!");
+                    JOptionPane.showMessageDialog(null, "Rating is not between 0-5!");
                 } else {
                     String entry = createEntry(name, author, review, rating);
                     Book b = new Book(name, author, rating, review);
@@ -90,7 +89,7 @@ public class AddBookPanel extends JPanel implements ActionListener {
                     setTxtFieldsNull();
                 }
             } catch (NumberFormatException a) {
-                JOptionPane.showMessageDialog(this, "Invalid Input! A number from 0-5 must be entered in Rating");
+                JOptionPane.showMessageDialog(null, "Invalid Input!");
             }
         }
     }

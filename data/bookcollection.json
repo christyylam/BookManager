@@ -1,4 +1,9 @@
 {
-    "books": [],
+    "books": [{
+        "author": "JK Rowling",
+        "review": "Good book",
+        "name": "Harry Potter",
+        "rating": 5
+    }],
     "name": "Christy's book collection"
 }
