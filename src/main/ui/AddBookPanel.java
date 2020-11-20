@@ -84,7 +84,7 @@ public class AddBookPanel extends JPanel implements ActionListener {
                     String entry = createEntry(name, author, review, rating);
                     Book b = new Book(name, author, rating, review);
                     LoadSavePanel.bookCollection.addBook(b);
-                    ViewBookCollectionPanel.model.add(0, entry);
+                    ViewBookCollectionPanel.model.addElement(entry);
                     playSoundEffect();
                     setTxtFieldsNull();
                 }

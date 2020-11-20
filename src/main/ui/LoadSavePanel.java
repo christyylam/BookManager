@@ -80,7 +80,7 @@ public class LoadSavePanel extends JPanel implements ActionListener {
                 String rating = Integer.toString(b.getRating());
                 String review = b.getReview();
                 String entry = createEntry(name, author, rating, review);
-                ViewBookCollectionPanel.model.add(0, entry);
+                ViewBookCollectionPanel.model.addElement(entry);
             }
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Unable to load book collection");

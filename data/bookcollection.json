@@ -1,9 +1,17 @@
 {
-    "books": [{
-        "author": "JK Rowling",
-        "review": "Good book",
-        "name": "Harry Potter",
-        "rating": 5
-    }],
+    "books": [
+        {
+            "author": "1",
+            "review": "1",
+            "name": "1",
+            "rating": 5
+        },
+        {
+            "author": "3",
+            "review": "3",
+            "name": "3",
+            "rating": 5
+        }
+    ],
     "name": "Christy's book collection"
 }
