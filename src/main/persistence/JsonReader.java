@@ -1,5 +1,6 @@
 package persistence;
 
+import exceptions.InvalidRatingException;
 import model.Book;
 import model.BookCollection;
 import org.json.JSONArray;
@@ -66,9 +67,12 @@ public class JsonReader {
         String author = jsonObject.getString("author");
         String review = jsonObject.getString("review");
         int rating = jsonObject.getInt("rating");
-        Book book = new Book(name, author, rating, review);
-        book.setRating(rating);
-        bc.addBook(book);
+        try {
+            Book book = new Book(name, author, rating, review);
+            bc.addBook(book);
+        } catch (InvalidRatingException e) {
+            System.out.println("Invalid Rating!");;
+        }
     }
 
 }

@@ -20,10 +20,15 @@ start forgetting as time passes.
 ## User Stories
 
 As a user, I want to be able to:
-- Add a book and its review to my collection
+- Add a book (name, author, rating, review) to my collection
 - View a list of books (the title and author) in my collection
-- Select a book in my collection and rate it on a scale of 1 to 5
+- Select a book in my collection and rate it on a scale of 0 to 5
 - Select a book in my collection and view my rating and review in detail
 
 - Save my book collection to file
 - Load my book collection from file
+
+## Phase 4: Task 2
+I have chosen to implement a class in my model package (Book) that is robust.
+The methods I have made robust are the Book constructor and the setRating method.
+

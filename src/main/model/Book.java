@@ -1,6 +1,8 @@
 package model;
 
+import exceptions.InvalidRatingException;
 import org.json.JSONObject;
+import org.omg.CORBA.DynAnyPackage.Invalid;
 import persistence.Writable;
 
 public class Book implements Writable {
@@ -9,13 +11,17 @@ public class Book implements Writable {
     private int rating;             // book's rating out of 5
     private String review;          // book's review
 
-    // REQUIRES: name and author has a non-zero length
-    // EFFECTS: creates new book with given name, rating and review
-    public Book(String name, String author, int rating, String review) {
+    // EFFECTS: creates new book with given name, rating (from 0-5) and review
+    // throws InvalidRatingException if rating is not between 0-5
+    public Book(String name, String author, int rating, String review) throws InvalidRatingException {
         this.name = name;
         this.author = author;
         this.review = review;
-        this.rating = rating;
+        if (!(0 <= rating && rating <= 5)) {
+            throw new InvalidRatingException("Invalid Rating!");
+        } else {
+            this.rating = rating;
+        }
     }
 
     //GETTERS AND SETTERS
@@ -35,9 +41,12 @@ public class Book implements Writable {
         return review;
     }
 
-
-    public void setRating(int i) {
-        this.rating = i;
+    public void setRating(int i) throws InvalidRatingException {
+        if (!(0 <= i && i <= 5)) {
+            throw new InvalidRatingException("Invalid Rating!");
+        } else {
+            this.rating = i;
+        }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package persistence;
 
+import exceptions.InvalidRatingException;
 import model.Book;
 import model.BookCollection;
 import org.junit.jupiter.api.Test;
@@ -44,7 +45,7 @@ public class JsonWriterTest extends JsonTest {
     }
 
     @Test
-    public void testWriterGeneralBookCollection() {
+    public void testWriterGeneralBookCollectionNoExceptions() {
         try {
             BookCollection bc = new BookCollection("My Book Collection");
             Book b1 = new Book("Harry Potter", "JK Rowling", 5,"good");
@@ -66,7 +67,19 @@ public class JsonWriterTest extends JsonTest {
 
         } catch (IOException e) {
             fail("Exception should not have been thrown");
+        } catch (InvalidRatingException i) {
+            fail("InvalidRatingException should not have been thrown");
+        }
+    }
 
+    @Test
+    public void testWriterGeneralBookCollectionException() {
+        try {
+            BookCollection bc = new BookCollection("My Book Collection");
+            Book b1 = new Book("Harry Potter", "JK Rowling", 6,"good");
+            fail("InvalidRatingException not thrown");
+        } catch (InvalidRatingException i) {
+            //expected
         }
     }
 }

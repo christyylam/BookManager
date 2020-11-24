@@ -1,5 +1,6 @@
 package ui;
 
+import exceptions.InvalidRatingException;
 import model.Book;
 import model.BookCollection;
 import persistence.JsonReader;
@@ -89,7 +90,6 @@ public class BookManagerApp {
     //EFFECTS: prompts user to add a book to the collection
     private void doAdd() {
         int rating = 0;
-        boolean correct = false;
         Scanner input = new Scanner(System.in);
         System.out.println("Enter name of book");
         String name = input.nextLine();
@@ -104,6 +104,14 @@ public class BookManagerApp {
         }
         System.out.println("Enter your review");
         String review = input.nextLine();
+        try {
+            canAddBook(name, author, rating, review);
+        } catch (InvalidRatingException e) {
+            System.out.println("Invalid Rating!");;
+        }
+    }
+
+    private void canAddBook(String name, String author, int rating, String review) throws InvalidRatingException {
         Book b = new Book(name, author, rating, review);
         if (!collection.addBook(b)) {
             System.out.println("This book is already in your collection!");
@@ -147,12 +155,12 @@ public class BookManagerApp {
         String name = input.nextLine();
         for (Book b : collection.getBookCollection()) {
             if (name.equals(b.getName())) {
-                System.out.println("What is your rating from 1 to 5?");
+                System.out.println("What is your rating from 0 to 5?");
                 int rating = input.nextInt();
-                if (rating >= 1 && rating <= 5) {
+                try {
                     b.setRating(rating);
                     System.out.println("rated!");
-                } else {
+                } catch (InvalidRatingException e) {
                     System.out.println("invalid rating!");
                 }
             }
@@ -182,7 +190,7 @@ public class BookManagerApp {
         }
     }
 
-     //EFFECTS: saves the bookcollection to file
+    //EFFECTS: saves the bookcollection to file
     private void saveBookCollection() {
         try {
             jsonWriter.open();

@@ -1,17 +1,9 @@
 {
-    "books": [
-        {
-            "author": "1",
-            "review": "1",
-            "name": "1",
-            "rating": 5
-        },
-        {
-            "author": "3",
-            "review": "3",
-            "name": "3",
-            "rating": 5
-        }
-    ],
+    "books": [{
+        "author": "3",
+        "review": "3",
+        "name": "3",
+        "rating": 3
+    }],
     "name": "Christy's book collection"
 }

@@ -1,5 +1,6 @@
 package ui;
 
+import exceptions.InvalidRatingException;
 import model.Book;
 
 import javax.sound.sampled.AudioInputStream;
@@ -78,15 +79,16 @@ public class AddBookPanel extends JPanel implements ActionListener {
                 int rating = Integer.parseInt(ratingTxt.getText());
                 if (nameTxt.getText().isEmpty() || authorTxt.getText().isEmpty() || reviewTxt.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Must fill in all fields!");
-                } else if (rating < 0 || rating > 5) {
-                    JOptionPane.showMessageDialog(null, "Rating is not between 0-5!");
                 } else {
-                    String entry = createEntry(name, author, review, rating);
-                    Book b = new Book(name, author, rating, review);
-                    LoadSavePanel.bookCollection.addBook(b);
-                    ViewBookCollectionPanel.model.addElement(entry);
-                    playSoundEffect();
-                    setTxtFieldsNull();
+                    addEntry(name, author, review, rating);
+                    try {
+                        Book b = new Book(name, author, rating, review);
+                        LoadSavePanel.bookCollection.addBook(b);
+                        playSoundEffect();
+                        setTxtFieldsNull();
+                    } catch (InvalidRatingException invalidRatingException) {
+                        JOptionPane.showMessageDialog(null, "Rating not between 0-5!");
+                    }
                 }
             } catch (NumberFormatException a) {
                 JOptionPane.showMessageDialog(null, "Invalid Input!");
@@ -94,11 +96,12 @@ public class AddBookPanel extends JPanel implements ActionListener {
         }
     }
 
-    //EFFECTS: creates a new entry with name, author, rating, review
-    public String createEntry(String name, String author, String review, int rating) {
+    //MODIFIES: ViewBookCollectionPanel
+    //EFFECTS: adds entry with name, author, rating, review into book collection model in the ViewBookCollection Panel
+    public void addEntry(String name, String author, String review, int rating) {
         String entry = "\"" + name + "\"" + " by " + author + ", Rating: "
                 + rating + " , Review: " + review;
-        return entry;
+        ViewBookCollectionPanel.model.addElement(entry);
     }
 
     //MODIFIES: this
