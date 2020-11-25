@@ -20,7 +20,7 @@ public class JsonReaderTest extends JsonTest {
         try {
             BookCollection bc = reader.read();
             fail("IOException expected");
-        } catch (IOException e) {
+        } catch (IOException | InvalidRatingException e) {
             //pass
         }
     }
@@ -32,7 +32,7 @@ public class JsonReaderTest extends JsonTest {
             BookCollection bc = reader.read();
             assertEquals("My Book Collection", bc.getName());
             assertEquals(0, bc.numBooks());
-        } catch (IOException e) {
+        } catch (IOException | InvalidRatingException e) {
             fail("Couldn't read from file");
         }
     }
@@ -47,7 +47,7 @@ public class JsonReaderTest extends JsonTest {
             assertEquals(2, books.size());
             checkBook("To Kill a Mockingbird", "Harper Lee", "Loved it", 5, books.get(0));
             checkBook("Harry Potter", "JK Rowling", "good", 5, books.get(1));
-        } catch (IOException e) {
+        } catch (IOException | InvalidRatingException e) {
             fail("Couldn't read from file");
         }
     }
@@ -60,6 +60,8 @@ public class JsonReaderTest extends JsonTest {
             assertEquals("My Book Collection", bc.getName());
             List<Book> books = bc.getBookCollection();
         } catch (IOException e) {
+            //expected
+        } catch (InvalidRatingException i) {
             //expected
         }
     }

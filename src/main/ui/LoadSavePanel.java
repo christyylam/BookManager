@@ -1,5 +1,6 @@
 package ui;
 
+import exceptions.InvalidRatingException;
 import model.Book;
 import model.BookCollection;
 import persistence.JsonReader;
@@ -83,7 +84,7 @@ public class LoadSavePanel extends JPanel implements ActionListener {
                 String entry = createEntry(name, author, rating, review);
                 ViewBookCollectionPanel.model.addElement(entry);
             }
-        } catch (IOException e) {
+        } catch (IOException | InvalidRatingException e) {
             JOptionPane.showMessageDialog(null, "Unable to load book collection");
 
         }

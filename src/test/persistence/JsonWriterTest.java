@@ -39,7 +39,7 @@ public class JsonWriterTest extends JsonTest {
             bc = reader.read();
             assertEquals("My Book Collection", bc.getName());
             assertEquals(0, bc.numBooks());
-        } catch (IOException e) {
+        } catch (IOException | InvalidRatingException e) {
             fail("Exception should not have been thrown");
         }
     }

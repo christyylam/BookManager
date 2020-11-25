@@ -208,7 +208,7 @@ public class BookManagerAppUi {
         try {
             collection = jsonReader.read();
             System.out.println("Loaded " + collection.getName() + " from " + JSON_STORE);
-        } catch (IOException e) {
+        } catch (IOException | InvalidRatingException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }

@@ -25,7 +25,7 @@ public class JsonReader {
 
     //EFFECTS: reads bookcollection from file and returns it;
     //throws IOException if an error occurs reading data from file
-    public BookCollection read() throws IOException {
+    public BookCollection read() throws IOException, InvalidRatingException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
         return parseBookCollection(jsonObject);
@@ -43,7 +43,7 @@ public class JsonReader {
     }
 
     //EFFECTS: parses bookcollection from JSON object and returns it
-    private BookCollection parseBookCollection(JSONObject jsonObject) {
+    private BookCollection parseBookCollection(JSONObject jsonObject) throws InvalidRatingException {
         String name = jsonObject.getString("name");
         BookCollection bc = new BookCollection(name);
         addBooks(bc, jsonObject);
@@ -52,7 +52,7 @@ public class JsonReader {
 
     //MODIFIES: bc
     //EFFECTS: parses books from JSON object and adds them to bookcollection
-    private void addBooks(BookCollection bc, JSONObject jsonObject) {
+    private void addBooks(BookCollection bc, JSONObject jsonObject) throws InvalidRatingException {
         JSONArray jsonArray = jsonObject.getJSONArray("books");
         for (Object json : jsonArray) {
             JSONObject nextBook = (JSONObject) json;
@@ -62,17 +62,13 @@ public class JsonReader {
 
     //MODIFIES: bc
     //EFFECTS: parses book from JSON object and adds it to bookcollection
-    private void addBook(BookCollection bc, JSONObject jsonObject) {
+    private void addBook(BookCollection bc, JSONObject jsonObject) throws InvalidRatingException {
         String name = jsonObject.getString("name");
         String author = jsonObject.getString("author");
         String review = jsonObject.getString("review");
         int rating = jsonObject.getInt("rating");
-        try {
-            Book book = new Book(name, author, rating, review);
-            bc.addBook(book);
-        } catch (InvalidRatingException e) {
-            System.out.println("Invalid Rating!");
-        }
+        Book book = new Book(name, author, rating, review);
+        bc.addBook(book);
     }
 
 }
