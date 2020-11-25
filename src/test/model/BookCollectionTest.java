@@ -53,7 +53,7 @@ public class BookCollectionTest {
     public void testAddBookSameNameSameAuthor() {
         try {
             Book b = new Book("Book", "Harper Lee", 5, "Loved it");
-            Book c = new Book("Book", "JK Rowling", 5, "Loved it");
+            Book c = new Book("Book", "Harper Lee", 5, "Loved it");
             assertFalse(testCollection.doesContain(b));
             assertTrue(testCollection.addBook(b));
             assertFalse(testCollection.addBook(c));
