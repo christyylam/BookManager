@@ -25,7 +25,7 @@ public class JsonReaderTest extends JsonTest {
     }
 
     @Test
-    public void testReaderEmptyBookCollection(){
+    public void testReaderEmptyBookCollection() {
         JsonReader reader = new JsonReader("./data/testReaderEmptyBookCollection.json");
         try {
             BookCollection bc = reader.read();
@@ -50,7 +50,9 @@ public class JsonReaderTest extends JsonTest {
             fail("Couldn't read from file");
         }
     }
-
-
-
 }
+
+
+
+
+

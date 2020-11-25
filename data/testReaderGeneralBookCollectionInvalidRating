@@ -1,0 +1,12 @@
+{
+  "books": [
+    {
+      "name": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "review": "Loved it",
+      "rating": 6
+    }
+  ],
+  "name": "My Book Collection"
+
+}
