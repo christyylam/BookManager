@@ -80,10 +80,10 @@ public class AddBookPanel extends JPanel implements ActionListener {
                 if (nameTxt.getText().isEmpty() || authorTxt.getText().isEmpty() || reviewTxt.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Must fill in all fields!");
                 } else {
-                    addEntry(name, author, review, rating);
                     try {
                         Book b = new Book(name, author, rating, review);
                         LoadSavePanel.bookCollection.addBook(b);
+                        addEntry(name, author, review, rating);
                         playSoundEffect();
                         setTxtFieldsNull();
                     } catch (InvalidRatingException invalidRatingException) {

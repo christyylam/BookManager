@@ -51,9 +51,19 @@ class BookTest {
     }
 
     @Test
-    public void testConstructorInvalidRating() {
+    public void testConstructorInvalidRatingGreaterThanFive() {
         try {
             Book testBook = new Book("To Kill a MockingBird", "Harper Lee", 7, "Loved it");
+            fail("InvalidRatingException not thrown");
+        } catch (InvalidRatingException e) {
+            //expected
+        }
+    }
+
+    @Test
+    public void testConstructorInvalidRatingLessThanZero() {
+        try {
+            Book testBook = new Book("To Kill a MockingBird", "Harper Lee", -1, "Loved it");
             fail("InvalidRatingException not thrown");
         } catch (InvalidRatingException e) {
             //expected
@@ -104,8 +114,22 @@ class BookTest {
     }
 
     @Test
-    public void testSetRatingInvalidRating() {
+    public void testSetRatingInvalidRatingGreaterThanFive() {
         int i = 10;
+        try {
+            Book testBook = new Book("To Kill a MockingBird", "Harper Lee", 5, "Loved it");
+            assertEquals(5, testBook.getRating());
+            testBook.setRating(i);
+            fail("InvalidRatingException not thrown");
+            assertEquals(2, testBook.getRating());
+        } catch (InvalidRatingException e) {
+            //expected
+        }
+    }
+
+    @Test
+    public void testSetRatingInvalidRatingLessThanZero() {
+        int i = -1;
         try {
             Book testBook = new Book("To Kill a MockingBird", "Harper Lee", 5, "Loved it");
             assertEquals(5, testBook.getRating());

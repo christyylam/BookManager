@@ -8,7 +8,7 @@ public class HeaderPanel extends JPanel {
     private JLabel titleLabel;
 
     //EFFECTS: constructs the AddBook panel
-    //CITATION: for resizing the imageIcon I found lines 16-18 on stackOverFlow
+    //CITATION: for resizing the imageIcon I found lines 22-24 on stackOverFlow
     //https://stackoverflow.com/questions/6714045/how-to-resize-jlabel-imageicon
     //Image icon png was found here: https://www.cleanpng.com/png-book-cover-outline-clip-art-1797368/download-png.html
     public HeaderPanel() {

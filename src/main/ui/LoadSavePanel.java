@@ -73,6 +73,7 @@ public class LoadSavePanel extends JPanel implements ActionListener {
     // EFFECTS: loads bookcollection from file
     private void loadBookCollection() {
         try {
+            ViewBookCollectionPanel.model.removeAllElements();
             bookCollection = jsonReader.read();
             for (Book b : bookCollection.getBookCollection()) {
                 String name = b.getName();
