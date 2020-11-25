@@ -1,16 +1,16 @@
 {
     "books": [
         {
-            "author": "sd2",
-            "review": "2",
-            "name": "sd",
-            "rating": 2
+            "author": "3",
+            "review": "3",
+            "name": "3",
+            "rating": 3
         },
         {
-            "author": "1",
-            "review": "1",
-            "name": "test",
-            "rating": 1
+            "author": "d2",
+            "review": "ds",
+            "name": "sd",
+            "rating": 2
         }
     ],
     "name": "Christy's book collection"
