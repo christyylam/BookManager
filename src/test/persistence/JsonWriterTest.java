@@ -71,16 +71,4 @@ public class JsonWriterTest extends JsonTest {
             fail("InvalidRatingException should not have been thrown");
         }
     }
-
-    @Test
-    public void testWriterGeneralBookCollectionException() {
-        try {
-            BookCollection bc = new BookCollection("My Book Collection");
-            Book b1 = new Book("Harry Potter", "JK Rowling", 6,"good");
-            bc.addBook(b1);
-            fail("InvalidRatingException not thrown");
-        } catch (InvalidRatingException i) {
-            //expected
-        }
-    }
 }

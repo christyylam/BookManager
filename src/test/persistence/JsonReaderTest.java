@@ -1,5 +1,6 @@
 package persistence;
 
+import exceptions.InvalidRatingException;
 import model.Book;
 import model.BookCollection;
 import org.junit.jupiter.api.Test;
@@ -48,6 +49,18 @@ public class JsonReaderTest extends JsonTest {
             checkBook("Harry Potter", "JK Rowling", "good", 5, books.get(1));
         } catch (IOException e) {
             fail("Couldn't read from file");
+        }
+    }
+
+    @Test
+    void testReaderGeneralBookCollectionInvalidRating() {
+        JsonReader reader = new JsonReader("./data/testReaderGeneralBookCollectionInvalidRating.json");
+        try {
+            BookCollection bc = reader.read();
+            assertEquals("My Book Collection", bc.getName());
+            List<Book> books = bc.getBookCollection();
+        } catch (IOException e) {
+            //expected
         }
     }
 }

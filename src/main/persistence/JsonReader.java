@@ -71,7 +71,7 @@ public class JsonReader {
             Book book = new Book(name, author, rating, review);
             bc.addBook(book);
         } catch (InvalidRatingException e) {
-            System.out.println("Invalid Rating!");;
+            System.out.println("Invalid Rating!");
         }
     }
 

@@ -1,9 +1,9 @@
 {
   "books": [
     {
-      "name": "To Kill a Mockingbird",
-      "author": "Harper Lee",
-      "review": "Loved it",
+      "name": "Harry Potter",
+      "author": "JK Rowling",
+      "review": "good",
       "rating": 6
     }
   ],
