@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 
-public class BookManagerAppFrame extends JFrame {
+public class BookManagerAppGui extends JFrame {
     private AddBookPanel bookPanel;
     private ViewBookCollectionPanel collectionPanel;
     private LoadSavePanel loadSavePanel;
@@ -16,7 +16,7 @@ public class BookManagerAppFrame extends JFrame {
 
     //Constructs main window
     //EFFECTS: sets up window where BookManagerApp will be run
-    public BookManagerAppFrame() {
+    public BookManagerAppGui() {
         super("Book Manager");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(650,650);
@@ -28,8 +28,10 @@ public class BookManagerAppFrame extends JFrame {
         add(bookPanel, BorderLayout.EAST);
         collectionPanel = new ViewBookCollectionPanel();
         add(collectionPanel, BorderLayout.CENTER);
-        add(loadSavePanel = new LoadSavePanel(), BorderLayout.SOUTH);
-        add(headerPanel = new HeaderPanel(), BorderLayout.NORTH);
+        loadSavePanel = new LoadSavePanel();
+        add(loadSavePanel, BorderLayout.SOUTH);
+        headerPanel = new HeaderPanel();
+        add(headerPanel, BorderLayout.NORTH);
 
         setVisible(true);
     }

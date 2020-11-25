@@ -12,14 +12,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //CITATION: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
-public class BookManagerApp {
+public class BookManagerAppUi {
     private BookCollection collection;
     private static final String JSON_STORE = "./data/bookcollection.json";
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
     //EFFECTS: constructs bookcollection and runs the BookManager application
-    public BookManagerApp() throws FileNotFoundException {
+    public BookManagerAppUi() throws FileNotFoundException {
         collection = new BookCollection("Christy's book collection");
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);

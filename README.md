@@ -32,3 +32,6 @@ As a user, I want to be able to:
 I have chosen to implement a class in my model package (Book) that is robust.
 The methods I have made robust are the Book constructor and the setRating method.
 
+## Phase 4: Task 3
+If I had more time to work on the project, I think I would have made the Book field in the ViewBookCollectionPanel class 
+a private field instead and used a getter to access it instead.
