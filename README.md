@@ -3,15 +3,14 @@
 ## Keep track of all the books you've read!
 
 Some features:
-- Organize books by genre
-- Lists all books in collection by the same author
 - Lets users visualize their book collection
 - Keeps track of user's ratings and reviews for each book
 - Lets users enter reviews for each book added
+- Lets users save and load their book collection
 
 This application will help users keep track of the books that they
 have read by visualizing their entire collection, keeping track of their reviews and ratings for each book,
-and allowing users to organize books by the genre or author. This application is for anyone who enjoys reading. 
+and allowing users to organize their collection by adding and removing books. This application is for anyone who enjoys reading. 
 
 This project is of interest to me because I enjoy reading as a hobby. I want an
 application to refer to where I can see the books that I have read and what I thought about them, since I usually 
