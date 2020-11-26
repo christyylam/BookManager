@@ -33,6 +33,8 @@ The methods I have made robust are the Book constructor and the setRating method
 
 ## Phase 4: Task 3
 If I had more time to work on the project, I think I would have made the bookCollection field in the LoadSavePanel class 
-a private field and used a getter to access it instead.
+a private field and used a getter to access it instead to achieve better encapsulation in my program.
 I think I would also refactor my actionPerformed method in my AddBookPanel class because it is quite long and it would be easier 
 to read/ easier to add more functionality to in the future if it was split into more helper methods.
+I would also move the createRemoveButton method and actionPerformed method in ViewBookCollection into a different class to have higher
+cohesiveness in the ViewBookCollection class, since removing an entry is separate from viewing the collection of books.
